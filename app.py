@@ -48,9 +48,9 @@ def chat():
     if input =="clear":
         os.system("rm -rf repo")
 
-        result = qa(input)
-        print(result['answer'])
-        return str(result["answer"])
+    result = qa(input)
+    print(result['answer'])
+    return str(result["answer"])
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8080, debug=True) 

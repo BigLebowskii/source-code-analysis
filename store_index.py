@@ -17,5 +17,5 @@ documents = load_repo("repo/")
 text_chunks = text_splitter(documents)
 embeddings = load_embedding()
 
-vectordb = Chroma.from_documents(text_chunks, embedding=embeddings, persist_directory = persist_directory)
+vectordb = Chroma.from_documents(text_chunks, embedding=embeddings, persist_directory = "./db")
 vectordb.persist()
