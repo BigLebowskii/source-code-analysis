@@ -7,7 +7,7 @@ import os
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chat_models import ChatOpenAI
-from langchain.memory import ConversationsSummaryMemory
+from langchain.memory import ConversationSummaryMemory
 from langchain.chains import ConversationalRetrievalChain
 from dotenv import load_dotenv
 
@@ -20,11 +20,11 @@ def repo_injestion(repo_url):
 
 #extract repos as documents
 def load_repo(repo_path): 
-loader = GenericLoader.from_filesystem(repo_path,
-glob = "**/*",
-suffixes=[".py"],
-parser = LanguageParser(language=Language.PYTHON, parser_threshold = 500)
-                               
+    loader = GenericLoader.from_filesystem(repo_path,
+    glob = "**/*",
+    suffixes=[".py"],
+    parser = LanguageParser(language=Language.PYTHON, parser_threshold = 500))
+                    
     documents = loader.load()
     return documents
 
