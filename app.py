@@ -38,3 +38,19 @@ def gitRepo():
         repo_injestion(user_input)
         os.system("python store_index.py")
     return jsonify({"response": str(user_inpt)})
+
+@app.route("/get", methods=["GET", "POST"])
+def chat():
+    msg=request.form["msg"]
+    input = msg
+    print(input)
+
+    if input =="clear":
+        os.system("rm -rf repo")
+
+        result = qa(input)
+        print(result['answer'])
+        return str(result["answer"])
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=8080, debug=True) 
