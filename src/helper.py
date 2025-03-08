@@ -20,10 +20,11 @@ def repo_injestion(repo_url):
 
 #extract repos as documents
 def load_repo(repo_path): 
-    loader = GenericLoader.from_filesystem(repo_path,/home/sami/Downloads/End-to-end-Medical-Chatbot-Generative-AI-main/template.py
-                                        glob = "**/*"),
-                                        suffixes=[".py"],
-                                        parser = LanguageParser(language=Language.PYTHON, parser_threshold=500)
+loader = GenericLoader.from_filesystem(repo_path,
+glob = "**/*",
+suffixes=[".py"],
+parser = LanguageParser(language=Language.PYTHON, parser_threshold = 500)
+                               
     documents = loader.load()
     return documents
 
