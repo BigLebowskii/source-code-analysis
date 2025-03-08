@@ -21,7 +21,7 @@ persist_directory = "db"
 
 #loading persisted database from disk and use it
 vectordb = Chroma(persist_directory = persist_directory,
-embedding_fucntion = embeddings)
+embedding_function = embeddings)
 
 llm = ChatOpenAI()
 memory = ConversationSummaryMemory(llm = llm, memory_key = "chat_history", return_messages=True)
